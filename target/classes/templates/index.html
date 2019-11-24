@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kompiuteriniu Zaidimu Kolekcijos Irankis</title>
+</head>
+<body>
+    <div align="center">
+        <h1>Kompiuteriniu Zaidimu Kolekcijos Irankis</h1>
+        <a href="/new">Prideti nauja zaidima</a>
+        <br/><br/>
+        <table border="1.5" cellpadding="5">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Zaidimo Pavadinimas</th>
+                    <th>Platforma</th>
+                    <th>Isleidimo Metai</th>
+                    <th>Vidutine Kaina</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="videoGame : ${listVideoGames}">
+                    <td th:text="${videoGame.gameID}">ID</td>
+                    <td th:text="${videoGame.title}">Zaidimo Pavadinimas</td>
+                    <td th:text="${videoGame.platform}">Platforma</td>
+                    <td th:text="${videoGame.releaseDate}">Isleidimo Metai</td>
+                    <td th:text="${videoGame.price}">Vidutine Kaina</td>
+                    <td>
+                        <a th:href="@{'/edit/' + ${videoGame.gameID}}">Redaguoti</a>
+                        <a th:href="@{'/delete/' + ${videoGame.gameID}}">Pasalinti</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

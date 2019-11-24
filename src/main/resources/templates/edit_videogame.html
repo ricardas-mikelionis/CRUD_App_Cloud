@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Redaguoti Zaidimo Irasa</title>
+</head>
+<body>
+<div align="center">
+    <h1>Redaguoti Zaidimo Irasa</h1>
+    <br />
+    <form action="#" th:action="@{/save}" th:object="${videoGame}"
+          method="post">
+
+        <table border="0" cellpadding="5">
+            <tr>
+                <td>Zaidimo ID:</td>
+                <td>
+                    <input type="text" th:field="*{gameID}" readonly="readonly" />
+                </td>
+            </tr>
+            <tr>
+                <td>Pavadinimas:</td>
+                <td>
+                    <input type="text" th:field="*{title}" />
+                </td>
+            </tr>
+            <tr>
+                <td>Platforma:</td>
+                <td><input type="text" th:field="*{platform}" /></td>
+            </tr>
+            <tr>
+                <td>Isleimo data:</td>
+                <td><input type="text" th:field="*{releaseDate}" /></td>
+            </tr>
+            <tr>
+                <td>Vidutine kaina:</td>
+                <td><input type="text" th:field="*{price}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Issaugoti</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
